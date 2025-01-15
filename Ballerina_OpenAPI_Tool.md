@@ -112,3 +112,17 @@ Then we have this `bal build --export-openapi` analyser compiler plugin command.
 So the other usage is VSCode `Try it` code lens swagger UI which is a LS extension (Language Server). When we write Ballerina code in VS Code, we can see the `Try it` pop up above the service. When we go to this `Try it` section, we can see the rendered Swagger UI there.. So this is done via this language extension.
 
 There’s another feature called external OAS generation service catalog which is currently being implemented and yet not released to the public.
+
+## `import ballerina/openapi` Ballerina Module
+
+There are two major reasons why we use this Ballerina OpenAPI importers,
+
+The First one is validator which is a separate jar but currently we are deprecating it which means we don’t carry on any maintenance under the validator since we have service contract type generator along with the service generation. The reason behind this is, if we have the service contract type, it can validate against your service declaration node by defining the OpenAPI operations. But still we don’t remove this from the openapi-tools repo.
+
+The other main reason why we are having these `ballerina/openapi importers is to add Examples, ServiceInfo, and ResourceInfo annotations. These annotations are implemented under the `ballerina/openapi` module.
+
+## OpenAPI to OpenAPI
+
+As we have previously mentioned, we have these newly introduced CLI commands called `align` and `flatten` and those are the current main usages of OAS to OAS openapi CLI.
+
+And there’s another feature where we have planned to add it in the future, which is to integrate the logic of OAS to Ballerina code generation.
